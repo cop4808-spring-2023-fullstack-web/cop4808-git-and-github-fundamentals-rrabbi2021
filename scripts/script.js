@@ -164,22 +164,27 @@ function inputSign(num) {
 }
 
 //hw2
+//function to square a number
 function inputSquare(num) {
     displayValue = (num*num).toString();
 }
 
+//function to take the sqrt of a number
 function inputSqrt(num){
     displayValue = ((num**0.5)).toString();
 }
 
+//function to take the sine of a number
 function inputSin(num){
     displayValue = (Math.sin(num)).toString();
 }
 
+//function to take the cosine of a number.
 function inputCos(num){
     displayValue = (Math.cos(num)).toString();
 }
 
+//end
 function clearDisplay() {
     displayValue = '0';
     firstOperand = null;
