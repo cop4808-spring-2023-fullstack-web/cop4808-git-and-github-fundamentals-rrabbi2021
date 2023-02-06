@@ -108,3 +108,39 @@ button {
 .percent:active {
     background-color: rgb(123, 189, 255);
 }
+
+.sqrt {
+    background-color: rgb(255, 255, 0);
+    font-weight: bold;
+}
+
+.sqrt:active {
+    background-color: rgb(255, 255, 0);
+}
+
+.square {
+    background-color: rgb(255, 255, 0);
+    font-weight: bold;
+}
+
+.square:active {
+    background-color: rgb(255, 255, 0);
+}
+
+.cos {
+    background-color: rgb(255, 255, 0);
+    font-weight: bold;
+}
+
+.cos:active {
+    background-color: rgb(255, 255, 0);
+}
+
+.sin {
+    background-color: rgb(255, 255, 0);
+    font-weight: bold;
+}
+
+.sin:active {
+    background-color: rgb(255, 255, 0);
+}
