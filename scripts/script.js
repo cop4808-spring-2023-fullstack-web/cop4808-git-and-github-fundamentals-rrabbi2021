@@ -6,9 +6,11 @@ let secondOperator = null;
 let result = null;
 const buttons = document.querySelectorAll('button');
 
-window.addEventListener('keydown', function(e){
-    const key = document.querySelector(`button[data-key='${e.keyCode}']`);
-    key.click();
+//[data-key='${e.key}'] allows shift key to be used to get values.
+//must click off calculator otherwise will not respond.
+window.addEventListener('keydown', function(shift){
+    const key = document.querySelector(`button[data-key='${shift.key}']`);
+        key.click();
 });
 
 function updateDisplay() {
@@ -79,7 +81,9 @@ function inputOperand(operand) {
         }
     } else {
         //3rd/5th click - inputs to secondOperand
-        if(displayValue === firstOperand) {
+        //bug fix hw2
+        if(displayValue === firstOperand && secondOperand == null) {
+            secondOperand = operand;
             displayValue = operand;
         } else {
             displayValue += operand;
@@ -96,6 +100,7 @@ function inputOperator(operator) {
         displayValue = roundAccurately(result, 15).toString();
         firstOperand = displayValue;
         result = null;
+        secondOperand = null;
     } else if(firstOperator != null && secondOperator != null) {
         //6th click - new secondOperator
         secondOperand = displayValue;
@@ -104,6 +109,9 @@ function inputOperator(operator) {
         displayValue = roundAccurately(result, 15).toString();
         firstOperand = displayValue;
         result = null;
+
+        //bug fix hw2
+        secondOperator = null;
     } else { 
         //2nd click - handles first operator input
         firstOperator = operator;
@@ -133,6 +141,9 @@ function inputEquals() {
         //handles first operation
         secondOperand = displayValue;
         result = operate(Number(firstOperand), Number(secondOperand), firstOperator);
+        if(result === 'see') {
+            displayValue = 'see';
+        }
         if(result === 'lmao') {
             displayValue = 'lmao';
         } else {
@@ -154,6 +165,8 @@ function inputDecimal(dot) {
         displayValue += dot;
     } 
 }
+
+
 
 function inputPercent(num) {
     displayValue = (num/100).toString();
@@ -200,6 +213,7 @@ function inputBackspace() {
         updateDisplay();
     }
 }
+
 
 function operate(x, y, op) {
     if(op === '+') {
