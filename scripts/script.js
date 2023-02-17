@@ -81,8 +81,9 @@ function inputOperand(operand) {
         }
     } else {
         //3rd/5th click - inputs to secondOperand
+        
         //bug fix hw2
-        if(displayValue === firstOperand && secondOperand == null) {
+        if(secondOperand == null && displayValue === firstOperand) {
             secondOperand = operand;
             displayValue = operand;
         } else {
@@ -112,6 +113,7 @@ function inputOperator(operator) {
 
         //bug fix hw2
         secondOperator = null;
+
     } else { 
         //2nd click - handles first operator input
         firstOperator = operator;
